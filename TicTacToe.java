@@ -24,6 +24,15 @@ class TicTacToe {
         input.close();
         // new TicTacToe().printBoard(new TicTacToe().board);
         new TicTacToe().startGame(position);
+        Scanner reset = new Scanner(System.in);
+        System.out.println("Thank you for playing! Would you like to play again.");
+        System.out.println("Press 1 to play again, or any other key to escape the world.");
+        int retry = reset.nextInt();
+        reset.close();
+        if(retry == 1){
+            while(new TicTacToe().playAgain()) {
+            }
+        }
     }
 
     /*Method to print board */
@@ -59,23 +68,28 @@ class TicTacToe {
                 if(gameCondition(turn)) {
                     break;
                 }
+                System.out.println("It is Tom's Turn. Please give him time to play his turn.");
                 tomsTurn();
                 turn++;
                 if(gameCondition(turn)) {
                     break;
                 }
             } else {
-                System.out.println("Please input the number's available on the board.");
+                System.out.println("Please input the number available on the board.");
             }
         }
     }
 
     public void tomsTurn() {
-
+        
     }
 
     public boolean gameCondition(int turnNumber) {
-        boolean gameOver = false;
+        boolean gameOver = true;
         return gameOver;
+    }
+
+    public boolean playAgain() {
+        return true;
     }
 }
